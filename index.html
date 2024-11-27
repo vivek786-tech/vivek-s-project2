@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .quiz-container {
+      max-width: 600px;
+      width: 100%;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    .question {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .question p {
+      margin: 0 0 8px;
+    }
+
+    label {
+      display: block;
+      margin: 4px 0;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #timer {
+      font-size: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .correct {
+      color: #ffffff;
+      background-color: #4CAF50;
+    }
+
+    .incorrect {
+      color: #ffffff;
+      background-color: #f44336;
+    }
+
+    @media (max-width: 768px) {
+      .quiz-container {
+        padding: 10px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Web Development Quiz</h1>
+    <div id="timer">Time Remaining: <span id="time">15:00</span></div>
+    <form id="quiz-form">
+      <div class="section">
+        <h2>HTML Questions</h2>
+        <div class="question">
+          <p>1. What does HTML stand for? <span class="score" id="score-q1"></span></p>
+          <label><input type="radio" name="q1" value="A"> Hyperlinks and Text Markup Language</label>
+          <label><input type="radio" name="q1" value="B"> Hyper Text Markup Language</label>
+          <label><input type="radio" name="q1" value="C"> Home Tool Markup Language</label>
+          <label><input type="radio" name="q1" value="D"> Hyperlinking Text Mark Language</label>
+        </div>
+        <div class="question">
+          <p>2. Which tag is used to create a hyperlink in HTML? <span class="score" id="score-q2"></span></p>
+          <label><input type="radio" name="q2" value="A"> &lt;img&gt;</label>
+          <label><input type="radio" name="q2" value="B"> &lt;a&gt;</label>
+          <label><input type="radio" name="q2" value="C"> &lt;link&gt;</label>
+          <label><input type="radio" name="q2" value="D"> &lt;href&gt;</label>
+        </div>
+        <div class="question">
+          <p>3. Which attribute is used to provide alternative text for an image in HTML? <span class="score" id="score-q3"></span></p>
+          <label ><input type="radio" name="q3" value="A"> src</label>
+          <label><input type="radio" name="q3" value="B"> href</label>
+          <label><input type="radio" name="q3" value="C"> alt</label>
+          <label><input type="radio" name="q3" value="D"> title</label>
+        </div>
+        <div class="question">
+          <p>4. What is the purpose of the &lt;title&gt; tag in HTML? <span class="score" id="score-q4"></span></p>
+          <label><input type="radio" name="q4" value="A"> To display a heading on the webpage</label>
+          <label><input type="radio" name="q4" value="B"> To set the title in the browser tab</label>
+          <label><input type="radio" name="q4" value="C"> To create a clickable link</label>
+          <label><input type="radio" name="q4" value="D"> To set the text color</label>
+        </div>
+        <div class="question">
+          <p>5. Which HTML tag is used to create a table? <span class="score" id="score-q5"></span></p>
+          <label><input type="radio" name="q5" value="A"> &lt;table&gt;</label>
+          <label><input type="radio" name="q5" value="B"> &lt;list&gt;</label>
+          <label><input type="radio" name="q5" value="C"> &lt;grid&gt;</label>
+          <label><input type="radio" name="q5" value="D"> &lt;matrix&gt;</label>
+        </div>
+        <div class="question">
+          <p>6. What is the correct HTML element for the largest heading? <span class="score" id="score-q6"></span></p>
+          <label><input type="radio" name="q6" value="A"> &lt;heading&gt;</label>
+          <label><input type="radio" name="q6" value="B"> &lt;h1&gt;</label>
+          <label><input type="radio" name="q6" value="C"> &lt;h6&gt;</label>
+          <label><input type="radio" name="q6" value="D"> &lt;head&gt;</label>
+        </div>
+        <div class="question">
+          <p>7. Which tag is used for adding a line break in HTML? <span class="score" id="score-q7"></span></p>
+          <label><input type="radio" name="q7" value="A"> &lt;lb&gt;</label>
+          <label><input type="radio" name="q7" value="B"> &lt;br&gt;</label>
+          <label><input type="radio" name="q7" value="C"> &lt;break&gt;</label>
+          <label><input type="radio" name="q7" value="D"> &lt;b&gt;</label>
+        </div>
+        <div class="question">
+          <p>8. Which attribute specifies a unique identifier for an HTML element? <span class="score" id="score-q8"></span></p>
+          <label><input type="radio" name="q8" value="A"> class</label>
+          <label><input type="radio" name="q8" value="B"> id</label>
+          <label><input type="radio" name="q8" value="C"> name</label>
+          <label><input type="radio" name="q8" value="D"> element</label>
+        </div>
+        <div class="question">
+          <p>9. What is the purpose of the &lt;body&gt; tag in HTML? <span class="score" id="score-q9"></span></p>
+          <label><input type="radio" name="q9" value="A"> To define the document's head</label>
+          <label><input type="radio" name="q9" value="B"> To define the document's body</label>
+          <label><input type="radio" name="q9" value="C"> To define the document's title</label>
+          <label><input type="radio" name="q9" value="D"> To define the document's footer</label>
+        </div>
+        <div class="question">
+          <p>10. Which HTML tag is used to create a table? <span class="score" id="score-q10"></span></p>
+          <label><input type ="radio" name="q10" value="A"> &lt;table&gt;</label>
+          <label><input type="radio" name="q10" value="B"> &lt;list&gt;</label>
+          <label><input type="radio" name="q10" value="C"> &lt;grid&gt;</label>
+          <label><input type="radio" name="q10" value="D"> &lt;matrix&gt;</label>
+        </div>
+      </div>
+
+      
+      <div class="section">
+        <h2>CSS Questions</h2>
+        <div class="question">
+          <p>11. What does CSS stand for? <span class="score" id="score-q11"></span></p>
+          <label><input type="radio" name="q11" value="A"> Creative Style Sheets</label>
+          <label><input type="radio" name="q11" value="B"> Cascading Style Sheets</label>
+          <label><input type="radio" name="q11" value="C"> Computer Style Sheets</label>
+          <label><input type="radio" name="q11" value="D"> Colorful Style Sheets</label>
+        </div>
+        <div class="question">
+          <p>12. Which property is used to change the background color in CSS? <span class="score" id="score-q12"></span></p>
+          <label><input type="radio" name="q12" value="A"> color</label>
+          <label><input type="radio" name="q12" value="B"> background-color</label>
+          <label><input type="radio" name="q12" value="C"> bg-color</label>
+          <label><input type="radio" name="q12" value="D"> backgroundColor</label>
+        </div>
+        <div class="question">
+          <p>13. Which CSS property is used to change the text color of an element? <span class="score" id="score-q13"></span></p>
+          <label><input type="radio" name="q13" value="A"> background-color</label>
+          <label><input type="radio" name="q13" value="B"> color</label>
+          <label><input type="radio" name="q13" value="C"> font-color</label>
+          <label><input type="radio" name="q13" value="D"> text-color</label>
+        </div>
+        <div class="question">
+          <p>14. How do you make each word in a text start with a capital letter in CSS? <span class="score" id="score-q14"></span></p>
+          <label><input type="radio" name="q14" value="A"> text-transform: uppercase;</label>
+          <label><input type="radio" name="q14" value="B"> text-transform: capitalize;</label>
+          <label><input type="radio" name="q14" value="C"> font-transform: capitalize;</label>
+          <label><input type="radio" name="q14" value="D"> capitalize: text;</label>
+        </div>
+        <div class="question">
+          <p>15. Which CSS property is used to control the space between elements? <span class="score" id="score-q15"></span></p>
+          <label><input type="radio" name="q15" value="A"> spacing</label>
+          <label><input type="radio" name="q15" value="B"> padding</label>
+          <label><input type="radio" name="q15" value="C"> margin</label>
+          <label><input type="radio" name="q15" value="D"> border</label>
+        </div>
+        <div class="question">
+          <p>16. What does the "float" property in CSS do? <span class="score" id="score-q16"></span></p>
+          <label><input type="radio" name="q16" value="A"> Centers an element</label>
+          <label><input type="radio" name="q16" value="B"> Hides an element</label>
+          <label><input type="radio" name="q16" value="C"> Moves an element left or right</label>
+          <label><input type="radio" name="q16" value="D"> Resizes an element</label>
+        </div>
+        <div class="question">
+          <p>17. Which property is used to change the font of an element? <span class="score" id="score-q17"></span></p>
+          <label><input type="radio" name="q17" value="A "> font-weight</label>
+          <label><input type="radio" name="q17" value="B"> font-family</label>
+          <label><input type="radio" name="q17" value="C"> text-style</label>
+          <label><input type="radio" name="q17" value="D"> text-font</label>
+        </div>
+        <div class="question">
+          <p>18. How do you select an element with an id of "header" in CSS? <span class="score" id="score-q18"></span></p>
+          <label><input type="radio" name="q18" value="A"> #header</label>
+          <label><input type="radio" name="q18" value="B"> .header</label>
+          <label><input type="radio" name="q18" value="C"> header</label>
+          <label><input type="radio" name="q18" value="D"> *header</label>
+        </div>
+        <div class="question">
+          <p>19. Which CSS property is used to make text bold? <span class="score" id="score-q19"></span></p>
+          <label><input type="radio" name="q19" value="A"> font-weight</label>
+          <label><input type="radio" name="q19" value="B"> text-style</label>
+          <label><input type="radio" name="q19" value="C"> font-bold</label>
+          <label><input type="radio" name="q19" value="D"> font-style</label>
+        </div>
+        <div class="question">
+          <p>20. Which value of the "position" property makes an element stay in place when scrolling? <span class="score" id="score-q20"></span></p>
+          <label><input type="radio" name="q20" value="A"> relative</label>
+          <label><input type="radio" name="q20" value="B"> absolute</label>
+          <label><input type="radio" name="q20" value="C"> fixed</label>
+          <label><input type="radio" name="q20" value="D"> static</label>
+        </div>
+      </div>
+
+      
+      <div class="section">
+        <h2>JavaScript Questions</h2>
+        <div class="question">
+          <p>21. Which of the following is a JavaScript data type? <span class="score" id="score-q21"></span></p>
+          <label><input type="radio" name="q21" value="A"> HTML</label>
+          <label><input type="radio" name="q21" value="B"> CSS</label>
+          <label><input type="radio" name="q21" value="C"> Number</label>
+          <label><input type="radio" name="q21" value="D"> PHP</label>
+        </div>
+        <div class="question">
+          <p>22. What does the console.log() function do in JavaScript? <span class="score" id="score-q22"></span></p>
+          <label><input type="radio" name="q22" value="A"> Clears the console</label>
+          <label><input type="radio" name="q22" value="B"> Logs a message to the console</label>
+          <label><input type="radio" name="q22" value="C"> Displays an alert box</label>
+          <label><input type="radio" name="q22" value="D"> Defines a variable</label>
+        </div>
+        <div class="question">
+          <p>23. Which symbol is used to write comments in JavaScript? <span class="score" id="score-q23"></span></p>
+          <label><input type="radio" name="q23" value="A"> // for single-line, /* */ for multi-line</label>
+          <label><input type="radio" name="q23" value="B"> # for single-line, /* */ for multi-line</label>
+          <label><input type="radio" name="q23" value="C"> -- for single-line, /* */ for multi-line</label>
+          <label><input type="radio" name="q23" value="D"> <!-- --> for both</label>
+        </div>
+        <div class="question">
+          <p>24. How do you declare a variable in JavaScript? <span class="score" id="score-q24"></span></p>
+          <label><input type="radio" name="q24" value="A"> variable name;</label>
+          <label><input type="radio" name="q24" value="B"> let name;</label>
+          <label><input type="radio" name="q24" value="C"> var name;</label>
+          <label><input type="radio" name="q24" value="D"> Both B and C</label>
+        </div>
+        <div class="question">
+          <p>25. What will the following code return: <code>console.log(typeof "hello");</code>? <span class="score" id="score-q25"></span></p>
+          <label><input type="radio" name="q25" value="A"> number</label>
+          <label><input type="radio" name="q25" value="B"> string</label>
+          <label><input type="radio" name="q25" value="C"> boolean</label>
+          <label><input type="radio" name="q25" value="D"> object</label>
+        </div>
+        <div class="question">
+          <p>26. Which function is used to display a message in an alert box? <span class="score" id="score-q26"></span></p>
+          <label><input type="radio" name="q26" value="A"> alert()</label>
+          <label><input type="radio" name="q26" value="B"> display()</label>
+          <label><input type="radio" name="q26" value="C"> msg()</label>
+          <label><input type="radio" name="q26" value="D"> prompt()</label>
+        </div>
+        <div class="question">
+          <p>27. Which operator is used to concatenate strings in JavaScript? <span class="score" id="score-q27"></span></p>
+          <label><input type="radio" name="q27" value="A"> +</label>
+          <label><input type="radio" name="q27" value="B"> -</label>
+          <label><input type="radio" name="q27" value="C"> &</label>
+          <label><input type="radio" name="q27" value="D"> *</label>
+        </div>
+        <div class="question">
+          <p>28. What is the result of <code>3 === "3"</code> in JavaScript? <span class="score" id="score-q28"></span></p>
+          <label><input type="radio" name="q28" value="A"> true</label>
+          <label><input type="radio" name="q28" value="B"> false</label>
+          <label><input type="radio" name="q28" value="C"> undefined</label>
+          <label><input type="radio" name="q28" value="D"> NaN</label>
+        </div>
+        <div class="question">
+          <p>29. Which method can be used to convert a string to an integer in JavaScript? <span class="score" id="score-q29"></span></p>
+          <label><input type="radio" name="q29" value="A"> Number()</label>
+          <label><input type="radio" name="q29" value="B"> parseInt()</label>
+          <label><input type="radio" name="q29" value="C"> int()</label>
+          <label><input type="radio" name="q29" value="D"> convert()</label>
+        </div>
+        <div class="question">
+          <p>30. What does <code>NaN</code> stand for in JavaScript? <span class="score" id="score-q30"></span></p>
+          <label><input type="radio" name="q30" value="A"> Not a Name</label>
+          <label><input type="radio" name="q30" value="B"> Not a Null</label>
+          <label><input type="radio" name="q30" value="C"> Not a Number</label>
+          <label><input type="radio" name="q30" value="D"> Null and Null</label>
+        </div>
+      </div>
+
+      <button type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const correctAnswers = {
+      q1: 'B',
+      q2: 'B',
+      q3: 'C',
+      q4: 'B',
+      q5: 'A',
+      q6: 'B',
+      q7: 'B',
+      q8: 'B',
+      q9: 'B',
+      q10: 'A', 
+      q11: 'B',
+      q12: 'B',
+      q13: 'B',
+      q14: 'B',
+      q15: 'C',
+      q16: 'C',
+      q17: 'B',
+      q18: 'A',
+      q19: 'A',
+      q20: 'C',
+      q21: 'C',
+      q22: 'B',
+      q23: 'A',
+      q24: 'D',
+      q25: 'B',
+      q26: 'A',
+      q27: 'A',
+      q28: 'B',
+      q29: 'B',
+      q30: 'C'
+    };
+
+    let time = 900; // 15 minutes in seconds
+    const timer = document.getElementById("time");
+    const interval = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      time--;
+
+      if (time < 0) {
+        clearInterval(interval);
+        submitQuiz();
+      }
+    }, 1000);
+
+    function submitQuiz() {
+      let score = 0;
+      let maxScore = Object.keys(correctAnswers).length;
+      const form = document.getElementById("quiz-form");
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "";
+
+      Object.keys(correctAnswers).forEach((question) => {
+        const userAnswer = form.elements[question];
+        let selectedAnswer = null;
+        // Loop through radio buttons to find the checked one
+        for (let i = 0; i < userAnswer.length; i++) {
+          if (userAnswer[i].checked) {
+            selectedAnswer = userAnswer[i].value;
+            break;
+          }
+        }
+
+        const isCorrect = selectedAnswer === correctAnswers[question];
+        const questionDiv = form.querySelector(`[name=${question}]`).closest(".question");
+        const scoreSpan = document.getElementById(`score-${question}`);
+
+        if (isCorrect) {
+          score += 1;
+          questionDiv.classList.add("correct");
+          scoreSpan.textContent = "✔";
+        } else {
+          questionDiv.classList.add("incorrect");
+          scoreSpan.textContent = "❎";
+        }
+      });
+
+      resultDiv.innerHTML = `You scored ${score} out of ${maxScore}.`;
+
+      if (score === maxScore) {
+        resultDiv.innerHTML += "<p>Excellent! You got everything right!</p>";
+      } else if (score >= maxScore * 0.6) {
+        resultDiv.innerHTML += "<p>Good job! Keep practicing!</p>";
+      } else {
+        resultDiv.innerHTML += "<p>Keep trying to improve your score!</p>";
+      }
+    }
+  </script>
+</body>
+</html>
